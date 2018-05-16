@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "declaration": true,
+    "jsx": "react",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es5",
+      "es6",
+      "es7",
+      "scripthost"
+    ],
+    "sourceMap": true,
+    "outDir": "./"
+  },
+  "include": [
+    "./src/Accordion/**/*.tsx",
+    "./src/Accordion/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "./src/**/*.spec.*",
+    "./src/**/*.stories.*"
+  ]
+}

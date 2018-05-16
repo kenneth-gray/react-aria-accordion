@@ -1,0 +1,25 @@
+{
+  "projectName": "react-aria-accordion",
+  "projectOwner": "kenneth-gray",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "kenneth-gray",
+      "name": "Kenneth Gray",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/10341832?v=4",
+      "profile": "https://github.com/kenneth-gray",
+      "contributions": [
+        "code",
+        "doc",
+        "test",
+        "example"
+      ]
+    }
+  ]
+}

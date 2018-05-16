@@ -1,0 +1,64 @@
+{
+  "name": "react-aria-accordion",
+  "version": "0.0.0-development",
+  "description": "React accordion component that follows WAI-ARIA practices",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "/lib"
+  ],
+  "repository": "https://github.com/kenneth-gray/react-aria-accordion",
+  "author": "Kenny Gray <kenneth-gray@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "commit": "git-cz",
+    "start": "start-storybook -p 9001 -c .storybook",
+    "build": "webpack --mode production",
+    "lint": "tslint -p .",
+    "test": "jest",
+    "add-contributor": "all-contributors add",
+    "semantic-release": "semantic-release"
+  },
+  "dependencies": {
+    "react": "^16.3.0"
+  },
+  "peerDependencies": {
+    "react": "^16.3.0"
+  },
+  "devDependencies": {
+    "@storybook/react": "4.0.0-alpha.8",
+    "@types/jest": "^23.3.1",
+    "@types/react": "^16.3.13",
+    "@types/storybook__react": "^3.0.7",
+    "all-contributors-cli": "^5.4.0",
+    "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "emotion": "^9.2.8",
+    "husky": "^1.0.0-rc.13",
+    "jest": "^23.4.2",
+    "prettier": "^1.12.1",
+    "react-dom": "16.3.0",
+    "react-emotion": "^9.2.8",
+    "react-testing-library": "^4.1.6",
+    "semantic-release": "^15.9.12",
+    "ts-jest": "^22.4.6",
+    "ts-loader": "^4.2.0",
+    "tslint": "^5.10.0",
+    "tslint-config-prettier": "^1.12.0",
+    "tslint-plugin-prettier": "^1.3.0",
+    "tslint-react": "^3.5.1",
+    "typescript": "^2.8.3",
+    "webpack": "^4.8.0",
+    "webpack-cli": "^2.1.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
+    }
+  }
+}
