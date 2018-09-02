@@ -736,7 +736,30 @@ describe('Accordion', () => {
 
         const header = getByTestId('header');
 
-        expect(header.hasAttribute('disabled')).toBe(true);
+        expect(header.getAttribute('disabled')).toEqual('');
+      });
+
+      it('cannot apply disabled property without header disabled prop', () => {
+        const { getByTestId } = render(
+          <TestAccordion>
+            <TestSection>
+              <Header>
+                {({ getButtonToggleProps }) => (
+                  <div
+                    {...getButtonToggleProps({
+                      'data-testid': 'header',
+                      disabled: true,
+                    })}
+                  />
+                )}
+              </Header>
+            </TestSection>
+          </TestAccordion>,
+        );
+
+        const header = getByTestId('header');
+
+        expect(header.hasAttribute('disabled')).toBe(false);
       });
 
       it('can be called without arguments', () => {

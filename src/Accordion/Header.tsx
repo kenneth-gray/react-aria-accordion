@@ -103,8 +103,8 @@ const Header: SFC<Props> = ({ children, headingLevel, disabled }) => (
             },
             getButtonToggleProps: (props = {}) => {
               return {
-                disabled: disabled == null ? undefined : disabled,
                 ...getToggleProps(props),
+                disabled: disabled == null ? undefined : disabled,
               };
             },
           });
