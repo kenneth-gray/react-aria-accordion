@@ -2,6 +2,13 @@
   "name": "react-aria-accordion",
   "version": "0.0.0-development",
   "description": "React accordion component that follows WAI-ARIA practices",
+  "keywords": [
+    "accessibility",
+    "accordion",
+    "component",
+    "react",
+    "wai-aria"
+  ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
