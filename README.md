@@ -6,6 +6,10 @@ as possible.
 
 It is purposefully missing the ability for a section to be auto collapsed on expanding another. Read [Design decisions](#design-decisions) for more information.
 
+## Demo
+
+[Demo](https://kenneth-gray.github.io/react-aria-accordion)
+
 ## Table of contents
 
 - [Installation](#installation)
