@@ -9,6 +9,7 @@ module.exports = {
     filename: 'index.js',
     library: 'ReactAriaAccordion',
     libraryTarget: 'umd',
+    globalObject: 'this',
   },
   externals: {
     react: {

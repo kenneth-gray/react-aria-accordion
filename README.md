@@ -310,8 +310,8 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars3.githubusercontent.com/u/10341832?v=4" width="100px;"/><br /><sub><b>Kenneth Gray</b></sub>](https://github.com/kenneth-gray)<br />[💻](https://github.com/kenneth-gray/react-aria-accordion/commits?author=kenneth-gray "Code") [📖](https://github.com/kenneth-gray/react-aria-accordion/commits?author=kenneth-gray "Documentation") [⚠️](https://github.com/kenneth-gray/react-aria-accordion/commits?author=kenneth-gray "Tests") [💡](#example-kenneth-gray "Examples") |
-| :---: |
+| [<img src="https://avatars3.githubusercontent.com/u/10341832?v=4" width="100px;"/><br /><sub><b>Kenneth Gray</b></sub>](https://github.com/kenneth-gray)<br />[💻](https://github.com/kenneth-gray/react-aria-accordion/commits?author=kenneth-gray "Code") [📖](https://github.com/kenneth-gray/react-aria-accordion/commits?author=kenneth-gray "Documentation") [⚠️](https://github.com/kenneth-gray/react-aria-accordion/commits?author=kenneth-gray "Tests") [💡](#example-kenneth-gray "Examples") | [<img src="https://avatars0.githubusercontent.com/u/940749?v=4" width="100px;"/><br /><sub><b>Koji Wakayama</b></sub>](http://codersociety.com)<br />[💻](https://github.com/kenneth-gray/react-aria-accordion/commits?author=kojiwakayama "Code") |
+| :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind are welcome!
