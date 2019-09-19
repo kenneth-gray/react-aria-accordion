@@ -20,6 +20,15 @@
         "test",
         "example"
       ]
+    },
+    {
+      "login": "kojiwakayama",
+      "name": "Koji Wakayama",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/940749?v=4",
+      "profile": "http://codersociety.com",
+      "contributions": [
+        "code"
+      ]
     }
   ]
 }
