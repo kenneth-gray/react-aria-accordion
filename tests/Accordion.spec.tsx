@@ -1,7 +1,12 @@
 import React, { Component, ReactNode, SFC } from 'react';
 import { cleanup, fireEvent, render } from 'react-testing-library';
 
-import Accordion, { Header, Panel, Section } from '../src/Accordion';
+import Accordion, {
+  Header,
+  initialiseForSsr,
+  Panel,
+  Section,
+} from '../src/Accordion';
 
 type TestAccordionProps = {
   accordionProps?: object;
@@ -947,6 +952,51 @@ describe('Accordion', () => {
       expect(header.getAttribute('aria-controls')).toEqual(
         panel.getAttribute('id'),
       );
+    });
+  });
+
+  describe('initaliseForSsr', () => {
+    it('resets the accordionId (so that the DOM matches when hydrating)', () => {
+      let header;
+      let typeId;
+
+      render(
+        <TestAccordion>
+          <TestSection>
+            <TestHeader />
+          </TestSection>
+        </TestAccordion>,
+      );
+
+      cleanup();
+
+      const { getByTestId } = render(
+        <TestAccordion>
+          <TestSection>
+            <TestHeader data-testid="header" />
+          </TestSection>
+        </TestAccordion>,
+      );
+
+      header = getByTestId('header');
+      typeId = header.getAttribute('data-accordion-id-type');
+      expect(typeId).not.toContain('accordion-1');
+
+      cleanup();
+
+      initialiseForSsr();
+
+      const { getByTestId: getByTestId2 } = render(
+        <TestAccordion>
+          <TestSection>
+            <TestHeader data-testid="header" />
+          </TestSection>
+        </TestAccordion>,
+      );
+
+      header = getByTestId('header');
+      typeId = header.getAttribute('data-accordion-id-type');
+      expect(typeId).toContain('accordion-1');
     });
   });
 });

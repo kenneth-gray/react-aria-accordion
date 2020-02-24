@@ -20,6 +20,7 @@ It is purposefully missing the ability for a section to be auto collapsed on exp
   - [\<Section />](#section-)
   - [\<Header />](#header-)
   - [\<Panel />](#panel-)
+  - [initialiseForSsr](#initialiseforssr)
 - [Design decisions](#design-decisions)
 - [Technical decisions](#technical-decisions)
 - [Contributors](#contributors)
@@ -138,6 +139,19 @@ import Accordion, { Section, Header, Panel } from './Accordion';
     </Panel>
   </Section>
 </Accordion>
+```
+
+### Server Sider Rendering (SSR)
+
+An additional `initialiseForSsr` function is required when using SSR so that the DOM matches when using client hydration:
+
+```jsx
+import { renderToString } from 'react-dom/server';
+import { initialiseForSsr } from 'react-aria-accordion';
+
+initialiseForSsr();
+renderToString(<App />);
+
 ```
 
 ## Using \<Header /> correctly
@@ -260,6 +274,12 @@ This is called with an object.
 |-----------------|---------------------------|---------------------------------------------------------------|
 | `getPanelProps` | `function(props: object)` | Returns the props you should apply to the element you render. |
 | `expanded`      | `boolean`                 | The expanded state of the section.                            |
+
+### initialiseForSsr
+
+> `function()`
+
+See [Server Side Rendering (SSR)](#server-sider-rendering-ssr) for more details.
 
 ## Design decisions
 

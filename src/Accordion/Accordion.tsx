@@ -50,7 +50,9 @@ type State = {
   }>;
 };
 
-let accordionId = 1;
+let accordionId: number;
+
+initialiseForSsr();
 
 class Accordion extends Component<Props, State> {
   public state: State = {
@@ -182,3 +184,7 @@ class Accordion extends Component<Props, State> {
 }
 
 export default Accordion;
+
+export function initialiseForSsr() {
+  accordionId = 1;
+}
