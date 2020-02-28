@@ -19,6 +19,7 @@ type Context = {
     collapseSection: () => void,
   ) => void;
   removeSection: (sectionId: string) => void;
+  getNextSectionId: () => number;
 };
 
 const { Provider: AccordionProvider, Consumer } = createContext<Context>({
@@ -27,6 +28,7 @@ const { Provider: AccordionProvider, Consumer } = createContext<Context>({
   onHeaderKeyDown: noop,
   addSection: noop,
   removeSection: noop,
+  getNextSectionId: () => 0,
 });
 
 export const AccordionConsumer = Consumer;
@@ -61,6 +63,7 @@ class Accordion extends Component<Props, State> {
   };
 
   private domHeaders: HTMLElement[] = [];
+  private nextSectionId = 1;
 
   public componentDidMount() {
     this.setDomHeaders();
@@ -69,6 +72,14 @@ class Accordion extends Component<Props, State> {
   public componentDidUpdate() {
     this.setDomHeaders();
   }
+
+  public getNextSectionId = () => {
+    const next = this.nextSectionId;
+
+    this.nextSectionId++;
+
+    return next;
+  };
 
   public render() {
     return (
@@ -79,6 +90,7 @@ class Accordion extends Component<Props, State> {
           onHeaderKeyDown: this.handleHeaderKeyDown,
           addSection: this.addSection,
           removeSection: this.removeSection,
+          getNextSectionId: this.getNextSectionId,
         }}
       >
         {this.props.children({

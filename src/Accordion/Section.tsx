@@ -35,7 +35,7 @@ type Props = {
 
 const Section = ({ defaultExpanded, expanded, onToggle, children }: Props) => (
   <AccordionConsumer>
-    {({ accordionId, addSection, removeSection }) => (
+    {({ accordionId, addSection, removeSection, getNextSectionId }) => (
       <InternalSection
         accordionId={accordionId}
         onToggle={onToggle}
@@ -43,6 +43,7 @@ const Section = ({ defaultExpanded, expanded, onToggle, children }: Props) => (
         addSection={addSection}
         removeSection={removeSection}
         expanded={expanded}
+        getNextSectionId={getNextSectionId}
         children={children}
       />
     )}
@@ -57,14 +58,13 @@ type InternalSectionProps = Props & {
     collapseSection: () => void,
   ) => void;
   removeSection: (sectionId: string) => void;
+  getNextSectionId: () => number;
 };
 
 type InternalSectionState = {
   id: string;
   expanded: boolean;
 };
-
-let sectionId = 1;
 
 class InternalSection extends Component<
   InternalSectionProps,
@@ -75,7 +75,7 @@ class InternalSection extends Component<
   };
 
   public state = {
-    id: `section-${sectionId++}`,
+    id: `${this.props.accordionId}-section-${this.props.getNextSectionId()}`,
     expanded: this.props.defaultExpanded as boolean,
   };
 

@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, SFC } from 'react';
+import React, { Component, Fragment, ReactNode, SFC } from 'react';
 import { cleanup, fireEvent, render } from 'react-testing-library';
 
 import Accordion, {
@@ -785,6 +785,44 @@ describe('Accordion', () => {
         expect(header).not.toBeNull();
       });
     });
+
+    it('has a unique id', () => {
+      const { getByTestId } = render(
+        <Fragment>
+          <TestAccordion>
+            <TestSection>
+              <TestHeader data-testid="header-1" />
+            </TestSection>
+            <TestSection>
+              <TestHeader data-testid="header-2" />
+            </TestSection>
+          </TestAccordion>
+          <TestAccordion>
+            <TestSection>
+              <TestHeader data-testid="header-3" />
+            </TestSection>
+            <TestSection>
+              <TestHeader data-testid="header-4" />
+            </TestSection>
+          </TestAccordion>
+        </Fragment>,
+      );
+
+      const headerIds = [
+        getByTestId('header-1').getAttribute('id'),
+        getByTestId('header-2').getAttribute('id'),
+        getByTestId('header-3').getAttribute('id'),
+        getByTestId('header-4').getAttribute('id'),
+      ];
+
+      headerIds.forEach((headerIdToTest, indexToAvoid) => {
+        headerIds.forEach((headerId, index) => {
+          if (index !== indexToAvoid) {
+            expect(headerIdToTest).not.toEqual(headerId);
+          }
+        });
+      });
+    });
   });
 
   describe('Panel', () => {
@@ -919,6 +957,44 @@ describe('Accordion', () => {
 
       expect(queryByTestId('panel')).not.toBeNull();
     });
+
+    it('has a unique id', () => {
+      const { getByTestId } = render(
+        <Fragment>
+          <TestAccordion>
+            <TestSection>
+              <TestPanel data-testid="panel-1" />
+            </TestSection>
+            <TestSection>
+              <TestPanel data-testid="panel-2" />
+            </TestSection>
+          </TestAccordion>
+          <TestAccordion>
+            <TestSection>
+              <TestPanel data-testid="panel-3" />
+            </TestSection>
+            <TestSection>
+              <TestPanel data-testid="panel-4" />
+            </TestSection>
+          </TestAccordion>
+        </Fragment>,
+      );
+
+      const panelIds = [
+        getByTestId('panel-1').getAttribute('id'),
+        getByTestId('panel-2').getAttribute('id'),
+        getByTestId('panel-3').getAttribute('id'),
+        getByTestId('panel-4').getAttribute('id'),
+      ];
+
+      panelIds.forEach((panelIdToTest, indexToAvoid) => {
+        panelIds.forEach((panelId, index) => {
+          if (index !== indexToAvoid) {
+            expect(panelIdToTest).not.toEqual(panelId);
+          }
+        });
+      });
+    });
   });
 
   describe('Header and Panel connections', () => {
@@ -959,6 +1035,7 @@ describe('Accordion', () => {
     it('resets the accordionId (so that the DOM matches when hydrating)', () => {
       let header;
       let typeId;
+      let getByTestId;
 
       render(
         <TestAccordion>
@@ -970,13 +1047,13 @@ describe('Accordion', () => {
 
       cleanup();
 
-      const { getByTestId } = render(
+      ({ getByTestId } = render(
         <TestAccordion>
           <TestSection>
             <TestHeader data-testid="header" />
           </TestSection>
         </TestAccordion>,
-      );
+      ));
 
       header = getByTestId('header');
       typeId = header.getAttribute('data-accordion-id-type');
@@ -986,13 +1063,13 @@ describe('Accordion', () => {
 
       initialiseForSsr();
 
-      const { getByTestId: getByTestId2 } = render(
+      ({ getByTestId } = render(
         <TestAccordion>
           <TestSection>
             <TestHeader data-testid="header" />
           </TestSection>
         </TestAccordion>,
-      );
+      ));
 
       header = getByTestId('header');
       typeId = header.getAttribute('data-accordion-id-type');
